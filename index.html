@@ -5,21 +5,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game TBD Mastermind or Blackjack</title>
+    <title>Blackjack</title>
+    <link href="css/card-library/css/cardstarter.css" rel="stylesheet"
+    type="text/css"/>    
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
+    <body>
+        <h1> welcome to blackjack</h1>
+        <h3>dealer</h3>
+        <div class="card-container">
+            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
+            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
+
+       <br>
+
+            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
+            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
+        <h3>you</h3>
+        <div class="card-container">
+        </div>
+            
+            <button id="hit-button">hit</button>
+            <button id="pass-button">pass</button>
+            <button id="deal-new-hand-button">deal new hand</button>
+
+        
+        <footer></footer>
+    </body>
+</html>
+    
+    <!-- <header> <h1>blackjack</h1> </header>
+
+        <h3> house: <span id="house-total"></span></h3>
+        <div><document class="create"></document>random.card</div>
+        <div id="house-cards"></div>
+
+        <img src="css/card-library/images/spades/spades-Q.svg">
+        <img src="css/card-library/images/spades/spades-Q.svg"> -->
+        <!-- <section id="original-deck-container"></section> -->
+
+        <!-- <img src="css/card-library/images/backs/blue.svg">
+        <img src="css/card-library/images/spades/spades-A.svg"> -->
+<!-- 
+        <br>
+    
+
+        <div id="player-cards"></div>
+    <img src="css/card-library/images/diamonds/diamonds-Q.svg">
+    <img src="css/card-library/images/diamonds/diamonds-Q.svg">
 
 
 
-<body>
+        <section id="player-hand"></section>
+        <div id="player-cards"></div>
+        <h3> player: <span id="player-total"></span></h3>
+
+        <br>
+
+        <button id="hit"><b>HIT</b></button>
+        <button id="stand"><b>STAND</b></button>
+
+     -->
 
   
-</body>
 
-</html>
 
 <!-- PSEUDOCODE: For game:
+
+// blackjack
+
+player presses start or deal
+cpu shuffles one or more decks, deals up card to player, down (random) card to house, up card to player, up card to house
+player option: playerTurn:
+    hit: cpu adds one up card to player
+    if cards add up to >21, return bust
+    stand: function cpuTurn
+    if face up card <= 6: hit
+        if cards add up to >21, bust
+    if face up card > 6: stand
+    stand: determine_Winner
+        flip down random card
+        if cpuTotal > playerTotal return, house wins!
+            add one to overall record
+        if cpuTotal < playerTotal return player wins!
+            add one to overall record
+        if cpuTotal === playerTotal, return it's a tie
+            add one to overall record
+    display play again/deal a new hand
+
 
 
 
