@@ -2,6 +2,9 @@
     box-sizing: border-box;
     text-align: center;
     background-color: #35654d;
+    width: fit-content;
+    margin: auto;
+    justify-content: center;
   }
   
   body {
@@ -10,44 +13,75 @@
     align-content: center;
   }
 
-  footer {
-    height: 50px;
+  spacing {
+    height: 10px;
   }
   
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border: 4px dotted grey;
+  padding 2px 2px 2px 2px;
+}
+
+  /* .cpu-card-container {
     justify-content: flex-start;
     border: 4px dotted grey;
-    padding: 10px;
+    padding: 2px 2px 2px 2px;
   }
 
-  #starting-hands {
-    max-height: 100px;
-    min-height: 20px;
+  .player-card-container {
+    justify-content: flex-end;
+    border: 4px dotted grey;
+    padding: 2px 2px 2px 2px;
+  } */
 
-    width: fit-content;
-    color: yellow;
-  }
-
-  .cards {
-    display: flex;
-    gap: 10px;
-  }
- 
   button {
     display: flex;
     margin: 10px auto;
     padding: 10px;
-    font-size: 16px;
-    color: grey;
-    border: 1px solid grey;
-    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    border-radius: 40px;
     outline: black;
-    align-items: flex-end;
+    flex-direction: row;
   }
   
-  button:hover {
-    background-color: grey;
+  #hit-button {
+    border: 4px solid red;
+  }
+
+  #hit-button:hover {
+    background-color: red;
+    border: 4px solid red;
     color: white;
+  }
+
+  #stand-button {
+    border: 4px solid blue;
+  }
+
+  #stand-button:hover {
+    background-color: blue;
+    border: 4px solid blue;
+    color: white;
+  }
+
+  #deal-new-hand-button {
+    border: 4px solid green;
+  }
+
+  #deal-new-hand-button:hover {
+    background-color: green;
+    border: 4px solid green;
+    color: white;
+  }
+
+  h1 {
+    color: black;
+  }
+
+  #jack {
+    color: red;
   }

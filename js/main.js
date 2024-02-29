@@ -1,180 +1,206 @@
-  
 //BLACKJACK project one ZK
 
-  /*----- constants -----*/
+/*----- constants -----*/
 const suits = ['s', 'c', 'd', 'h'];
 const values = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+
 const originalDeck = buildOriginalDeck();
-renderDeckInContainer(originalDeck, document.getElementById('original-deck-container'));
-
 /*----- constants -----*/
-  /*-----state variables -----*/
-  // gameboard "table" = 2 card spaces for player and dealer
-  // turn: player goes first, then runs DealerTurn
-  let turn; // 1 for player, -1 for CPU
-  let table; // table for the cards and chips, 2D array. no player: null
-  let winner; // tie, house wins, bust
-  let shuffledDeck; //newDeck
 
-  /*----- cached elements  -----*/
-  const shuffledContainer = document.getElementById('shuffled-deck-container');
-// messages
-// play again button
+/*-----state variables -----*/
+let shuffledDeck; //newDeck
+let cpuHand = [];
+let playerHand = [];
+let cpuTotal = 0;
+let playerTotal = 0;
 
-  /*----- event listeners -----*/
-// click buttons -> hit, stand, bet, SPLIT optional
-// document.querySelector('hitMe').addEventListener('click', renderNewCard);
+/*----- cached elements  -----*/
+const cpuContainer = document.querySelectorAll('.cpu-card-container > div');
+const playerContainer = document.querySelectorAll('.player-card-container > div');
+  
+/*----- event listeners -----*/
+// document.querySelector('hit-button').addEventListener('click', hitPlayer);
+// document.querySelector('stand-button').addEventListener('click', cpuTurn);
+document.querySelector('#deal-new-hand-button').addEventListener('click', dealHands);
 
-// dealHand begins game
-  // <button onclick="dealHand()">deal</button>
-// hitButton adds one card to CPU or User
-  // <button onclick="hitButton">hit</button>
-  // Stand button ends
-  // <button onclick="standButton">stand</button>
-
-// playAgain button
   /*---- functions -----*/
-
-// function startGame
-//   function(dealHands(())
-
-function buildOriginalDeck() {
-  const deck = [];
-  suits.forEach(function(suit) {
-    ranks.forEach(function(value) {
-      deck.push({
-        face: `${suit}${value}`,
-        value: Number(rank) || (rank === 'A' ? 11 : 10)
+  // builds one (1) deck the dealer uses. new deck every hand.
+  function buildOriginalDeck() {
+    const originalDeck = [];
+    suits.forEach(function(suit) {
+      values.forEach(function(value) {
+        originalDeck.push({
+          face: `${suit}${value}`,
+          points: Number(value) || (value === 'A' ? 11 : 10)
+        });
       });
     });
-  });
-  return deck;
+    return originalDeck;
 };
 
-const dealHands () =>
-  cpuHand = [.card.small`${suit}${value}`, randomCard()];
-  playerHand = [randomCard(), randomCard()];
+  function shuffleDeck() {
+    for (let i = 0; i < originalDeck.length, i++) {
+      const randomIdx = Math.floor(Math.random() * originalDeck.length);
+      originalDeck.splice(randomIdx, 1)
+      return card;
+    }
+  }
+ // This function generates a random card, set in an array from one deck of cards
+  function randomCard() {
+    const randomIdx = Math.floor(Math.random() * originalDeck.length);
+    const card = originalDeck[randomIdx];
+    originalDeck.splice(randomIdx, 1)
+    return card;
+};
+ // addsImage of card from CSS card library 
+  function addImage() {
+    console.log(cpuContainer[0]);
+    for (let i =0; i < cpuContainer.length; i++) {
+    cpuContainer[i].classList.add(cpuHand[i].face)
+  };
+  console.log(playerContainer[0])
+    for (let i=0; i < playerContainer.length; i++) {
+    playerContainer[i].classList.add(playerHand[i].face);
+  }
+}; 
 
+// JS
+// Copy to Clipboard
+// const items = ["item1", "item2", "item3"];
+// const copyItems = [];
 
-const randomCard = () => {
-  const randomIdx = Math.floor(Math.random() * originalDeck.length);
-  const card = originalDeck[randomIdx];
-  return card;
+// // before
+// for (let i = 0; i < items.length; i++) {
+//   copyItems.push(items[i]);
+// }
+
+// // after
+// items.forEach((item) => {
+//   copyItems.push(item);
+// });
+
+// This function begins the game when a player presses start, button text then changes to deal new hand.
+  function dealHands() { 
+    cpuHand = [randomCard(), randomCard()];
+    playerHand = [randomCard(), randomCard()];
+    addImage(cpuHand);
+    addImage(playerHand);
+    playerTurn();
+    // cpuTurn();
+    // whoWins();
+    console.log(cpuHand);
+  console.log(playerHand);
+  };
+
+  // playerTurn(playerHand);
+  // console.log('cpu', cpuHand);
+  // console.log('player', playerHand);
+
+// This function logs the player hit or stand, then moves to the CPU's turn
+    function hitPlayer() {
+      const newCard = randomCard();
+      const playerHand = [];
+      playerHand.push(newCard);
+      addImage(playerContainer);
+
+      const playerTotal = cardSum(playerHand);
+        if (playerTotal > 21) {
+          console.log("you're busted, buster.")
+          alert("you're busted, buster.");
+        } else if (playerTotal <= 21) {
+          playerTurn();
+        }      
+    };
+
+    function playerTurn(){
+    };
+
+    function cpuTurn() {
+      // flip card 
+      const cpuTotal = cardSum(cpuHand);
+        if (cpuTotal > 21) {
+          console.log("THIS house? Busted.")
+        } else if (cpuTotal <17) {
+          hitCpu();
+        } else if (cpuTotal >= 17) {
+          whoWins();
+        };
+    };
+
+    function hitCpu() {
+      const houseCard = randomCard();
+      const cpuHand = [];
+      cpuHand.push(houseCard);
+      addImage(cpuContainer);
+    };
+
+// This function adds card values for user and CPU
+// function cardSum(hand) {
+//   let cardValue = 0;
+//   let hasAce = false;
+
+//   hand.forEach(function(card) {
+//     for (let i =0; i < hand.length; i++) {
+//       card.Value + cardSum[i]
+//     }
+//   })
+//     card.Value += Math.min(10, value);
+//     hasAce ||= value == 1;
+//   };
+//   return hasAce && cardValue <= 11 ? cardValue + 10 : cardValue;};
+// console.log(cardSum(randomCard()));
+  // add value of cards in cpu-card-container 
+
+function addImage() {
+  console.log(cpuContainer[0]);
+  for (let i =0; i < cpuContainer.length; i++) {
+  cpuContainer[i].classList.add(cpuHand[i].face)
+};
+console.log(playerContainer[0])
+  for (let i=0; i < playerContainer.length; i++) {
+  playerContainer[i].classList.add(playerHand[i].face);
 }
-  console.log(randomCard);
+}; 
 
-function cpuTurn = ()
-
-const dealHand();
-const playerTurn = playerTurn();
-const cpuTurn = cpuTurn();
-const hitButton = ();
-const standButton = ();
+// This function compares the total card value for user and CPU
+const whoWins = () => {
+  if (cardSum(cpuHand) > cardSum(playerHand))
+    alert("House wins!");
+ else if (cardSum(cpuHand) > cardSum(playerHand))
+    alert("You win!");
+ else if (cardSum(cpuHand) === cardSum(playerHand))
+    (alert)("It's a draw.");
+};
 
 // renderNewShuffledDeck();
-
-// const dealHands = () => {
-//   dealerHand = [selectRandomCard(), selectRandomCard()];
-//   dealerHand.forEach((card, index) => {
-//       const newCard = CARD_MODEL.cloneNode(true);
-//       index === 0 ? newCard.classList.add('back') : newCard.innerHTML = card;
-//       (card[card.length - 1] === '♦' || card[card.length - 1] === '♥') && newCard.setAttribute('data-red', true);
-//       DEALER.append(newCard);
-//   })
-//   playerHand = [selectRandomCard(), selectRandomCard()];
-//   playerHand.forEach((card) => {
-//       const newCard = CARD_MODEL.cloneNode(true);
-//       newCard.innerHTML = card;
-//       (card[card.length - 1] === '♦' || card[card.length - 1] === '♥') && newCard.setAttribute('data-red', true);
-//       PLAYER.append(newCard);
-//   })
-// }
-/*----- functions -----*/
-function getNewShuffledDeck() {
-  // Create a copy of the originalDeck (leave originalDeck untouched!)
-  const tempDeck = [...originalDeck];
-  const newShuffledDeck = [];
-  while (tempDeck.length) {
-    // Get a random index for a card still in the tempDeck
-    const rndIdx = Math.floor(Math.random() * tempDeck.length);
-    // Note the [0] after splice - this is because splice always returns an array and we just want the card object in that array
-    newShuffledDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-  }
-  return newShuffledDeck;
-}
-
-function renderNewShuffledDeck() {
-  // Create a copy of the originalDeck (leave originalDeck untouched!)
-  shuffledDeck = getNewShuffledDeck();
-  renderDeckInContainer(shuffledDeck, shuffledContainer);
-}
-
-function renderDeckInContainer(deck, container) {
-  container.innerHTML = '';
-  // Let's build the cards as a string of HTML
-  let cardsHtml = '';
-  deck.forEach(function(card) {
-    cardsHtml += `<div class="card ${card.face}"></div>`;
-  });
-  // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
-  // const cardsHtml = deck.reduce(function(html, card) {
-  //   return html + `<div class="card ${card.face}"></div>`;
-  // }, '');
-  container.innerHTML = cardsHtml;
-}
-
-
-renderNewShuffledDeck();
-
-// BEGIN ORIGINAL CODE 
-
-  // card deck: 52 cards per deck, have dealer cycle through 3 decks and then shuffle
-
-  /*----- state variables -----*/
-
-  // // gameboard "table" = 2 card spaces for player and dealer
-  // // turn: player goes first, then runs DealerTurn
-  // let turn; // 1 for player, -1 for CPU
-  // let table; // table for the cards and chips, 2D array. no player: null
-  // let winner; // tie, house wins, bust
-  // let shuffledDeck; 
-
-
-  /*----- cached elements  -----*/
-// messages
-// play again button
-
-  /*----- event listeners -----*/
-// click buttons -> hit, stand, bet, SPLIT optional
-// playAgain button
-
-  /*----- functions -----*/
-
-  // playGame () / renderGame ()
- // init()
-
-//  function rendr () {
-//   renderBoard();
-//   renderScores();
-//   renderControls();
-//   render
-//  }
-
- // function playGame -> 
- //       startGame, 
- //             playerBet
-//                  dealPlayerHand, 
-//                         if hand = 21 -> stand
-//                          SPLIT optional (part of both player and house)
-//                   dealHouseHand
-//                        if hand >= 17 -> stay
-//                findWinner() -> Player wins/House wins/Push/
-//              nextHand with same deck or recycling one 52-card deck
-
+// function startGame
+// flow
+  // startGame(dealHands)
+  // dealHands
+        // playerTurn;
+            // hit me
+        // cpuTurn;
+          // hit me
+  // print winner
+  // deal new hand is same as start button
+//   function(dealHands(())
+// $0.classList.add(`${suits[indexedDB]}${values[indexedDB]]}`);
+// const hitCPU = 
+// if ()
+// display total somewhere on table
+// console.log(cardSum)
+// const hitPlayer = () => {};
+// const standButton = () => {};
 // ADDITIONAL flavor
+// Change button to "start" at first then "deal new hand"
+// Sound, card animation
 // different table colors
 // different decks
 // input user name, choose signature affectation/style
 // sound effects -- stars/sparkles when you hit blackjack
-  //  reshuffling the deck, dealing out cards, dealing out chips
+//    reshuffling the deck, dealing out cards, dealing out chips
 // visual effects -- fireworks on blackjack
+// const changeText = document.querySelector("#deal-new-hand-button");
+// changeText.addEventListener("click", function() {
+//   changeText.textContent = "deal new hand";
+// })

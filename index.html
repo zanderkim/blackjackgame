@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -12,69 +11,34 @@
     <script defer src="js/main.js"></script>
 </head>
     <body>
-        <h1> welcome to blackjack</h1>
-        <h3>dealer</h3>
+        <h1>black<span id="jack">jack</span></h1>
+        <h6>dealer</h6>
+       
         <div class="card-container">
-            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
-            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
-
-       <br>
-
-            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
-            <img src="css/card-library/images/diamonds/diamonds-r05.svg">
-        <h3>you</h3>
-        <div class="card-container">
+            <div class="cpu-card-container">
+                <div class="card" id="cardthree"></div>
+                <div class="card" id="cardfour"></div>
+            </div>
         </div>
-            
-            <button id="hit-button">hit</button>
-            <button id="pass-button">pass</button>
-            <button id="deal-new-hand-button">deal new hand</button>
 
-        
-        <footer></footer>
+        <div class="card-container">
+            <div class="player-card-container">
+                <div class="card" id="cardthree"></div>
+                <div class="card" id="cardfour"></div>
+             
+            </div>    
+        </div>
+        <h6>you</h6>
+        <div class="button-container">
+            <button id="hit-button">hit</button> 
+            <button id="stand-button">stand</button>
+            <button id="deal-new-hand-button">start</button>
+        </div>
     </body>
 </html>
     
-    <!-- <header> <h1>blackjack</h1> </header>
-
-        <h3> house: <span id="house-total"></span></h3>
-        <div><document class="create"></document>random.card</div>
-        <div id="house-cards"></div>
-
-        <img src="css/card-library/images/spades/spades-Q.svg">
-        <img src="css/card-library/images/spades/spades-Q.svg"> -->
-        <!-- <section id="original-deck-container"></section> -->
-
-        <!-- <img src="css/card-library/images/backs/blue.svg">
-        <img src="css/card-library/images/spades/spades-A.svg"> -->
-<!-- 
-        <br>
-    
-
-        <div id="player-cards"></div>
-    <img src="css/card-library/images/diamonds/diamonds-Q.svg">
-    <img src="css/card-library/images/diamonds/diamonds-Q.svg">
-
-
-
-        <section id="player-hand"></section>
-        <div id="player-cards"></div>
-        <h3> player: <span id="player-total"></span></h3>
-
-        <br>
-
-        <button id="hit"><b>HIT</b></button>
-        <button id="stand"><b>STAND</b></button>
-
-     -->
-
-  
-
-
 <!-- PSEUDOCODE: For game:
-
 // blackjack
-
 player presses start or deal
 cpu shuffles one or more decks, deals up card to player, down (random) card to house, up card to player, up card to house
 player option: playerTurn:
@@ -93,9 +57,6 @@ player option: playerTurn:
         if cpuTotal === playerTotal, return it's a tie
             add one to overall record
     display play again/deal a new hand
-
-
-
 
 
 -->
