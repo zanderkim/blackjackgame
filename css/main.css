@@ -21,10 +21,18 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  border: 4px dotted grey;
+  border: hidden;
   padding 2px 2px 2px 2px;
 }
 
+#restart-button {
+  /*visibility: hidden; */
+}
+
+#final-results {
+  color: white;
+  font-size: 12px;
+}
   /* .cpu-card-container {
     justify-content: flex-start;
     border: 4px dotted grey;
@@ -68,11 +76,11 @@
     color: white;
   }
 
-  #deal-new-hand-button {
+  #start-button {
     border: 4px solid green;
   }
 
-  #deal-new-hand-button:hover {
+  #start-button:hover {
     background-color: green;
     border: 4px solid green;
     color: white;
