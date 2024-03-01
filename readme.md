@@ -17,7 +17,6 @@ Game instructions:
 
 Unique rules: 
 	- Ace is always valued at 11, never 1.
-	- Betting feature always returns double, no minimum or maximum bet.
 	- User can see both of dealer's cards.
 	- Only press start for the first hand, "deal new hand button" afterward.
 
@@ -31,5 +30,6 @@ Next Steps: Planned future enhancements (icebox items).
 	- Add capability of using multiple decks and keeping the same array throughout the hands.
 	- Add capability of running chip total.
 	- Sound/visual effects.
+ 	- Betting feature that always returns double, no minimum or maximum bet. Running pot.
 	- Add multiple printed results, give the CPU personality.
 	- Add start/welcome landing page.
