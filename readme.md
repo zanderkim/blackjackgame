@@ -4,7 +4,7 @@ Blackjack is a popular card casino game - the most widely played casino banking 
 
 Blackjack players do not compete against each other. The game is a comparing card game where each player competes against the dealer.
 
-Fun fact: 1. The first written mention of blackjack was in a collection of short stories by Miguel de Cervantes, the author of “Don Quixote," dating this game back to the late 16th/early 17th century.
+Fun fact: The first written mention of blackjack was in a collection of short stories by Miguel de Cervantes, the author of “Don Quixote," dating this game back to the late 16th/early 17th century.
 
 Game: https://zanderkim.github.io/blackjackgame/
 
