@@ -25,7 +25,7 @@ const outerCpuContainer = document.querySelector('.cpu-card-container');
 document.querySelector('#hit-button').addEventListener('click', hitPlayer);
 document.querySelector('#stand-button').addEventListener('click', hitCpu);
 document.querySelector('#start-button').addEventListener('click', dealHands);
-// document.querySelector('#restart-button').addEventListener('click', location.reload(true));
+document.querySelector('#restart-button').addEventListener('click', reDeal);
 
 /*---- functions -----*/
   // builds one (1) deck the dealer uses. new deck every hand. each card has a face and point value
@@ -71,7 +71,8 @@ document.querySelector('#start-button').addEventListener('click', dealHands);
 // restarbutton.style.visibility = hidden in VS, visible in JS
 // This function begins the game when a player presses start, button text then changes to deal new hand.
   function dealHands() { 
-    // document.getElementById('#restart-button').style.visibility="visible";
+    document.getElementById('restart-button').style.visibility = 'visible';
+    document.getElementById('start-button').style.visibility = 'hidden';
     cpuHand = [randomCard(), randomCard()];
     playerHand = [randomCard(), randomCard()];
     addImage();
@@ -83,6 +84,13 @@ document.querySelector('#start-button').addEventListener('click', dealHands);
     // };
   };
 
+  function reDeal() {
+    window.location.reload(true);
+    // const deck = [];
+    // buildOriginalDeck();
+    // deck.classList.remove('face');
+    // dealHands();
+  };
 // This function logs the player hit or stand, then moves to the CPU's turn
   function hitPlayer() {
     const newCard = randomCard();
@@ -96,7 +104,7 @@ document.querySelector('#start-button').addEventListener('click', dealHands);
     // const cpuTotal = cardSum(cpuHand);
       if (playerTotal > 21) {
         console.log("you're busted, buster.")
-        document.getElementById("final-results").textContent = "busted! your hand is over 21.";
+        document.getElementById("final-results").textContent = "uh oh! looks like you're over 21. try again, we believe in you.";
       } else if (playerTotal <= 21) {
         playerTurn();
   }};
@@ -119,7 +127,7 @@ document.querySelector('#start-button').addEventListener('click', dealHands);
       } else if (cpuTotal <=21 && cpuTotal >=17) {
         whoWins();
       } else if (cpuTotal > 21) {
-        document.getElementById("final-results").textContent = "The house busted! Over 21.";
+        document.getElementById("final-results").textContent = "THIS house? Busted.";
       };  
   };
 
@@ -139,20 +147,10 @@ document.querySelector('#start-button').addEventListener('click', dealHands);
     const cpuContainer = document.querySelectorAll('.cpu-card-container > div');
   
     if (cardSum(playerHand) < cardSum(cpuHand)) {
-      document.getElementById("final-results").textContent = "House wins!";
+      document.getElementById("final-results").textContent = "house wins...";
     } else if (cardSum(playerHand) > cardSum(cpuHand)) {
-      document.getElementById("final-results").textContent = "You win!";
+      document.getElementById("final-results").textContent = "you win!";
     } else if (cardSum(playerHand) === cardSum(cpuHand)) {
-      document.getElementById("final-results").textContent = "That's a tie.";
+      document.getElementById("final-results").textContent = "is attire business casual? because that's a tie.";
     };
   };
-
-// ADDITIONAL flavor
-// Change button to "start" at first then "deal new hand"
-// Sound, card animation
-// different table colors
-// different decks
-// input user name, choose signature affectation/style
-// sound effects -- stars/sparkles when you hit blackjack
-//    reshuffling the deck, dealing out cards, dealing out chips
-// visual effects -- fireworks on blackjack
