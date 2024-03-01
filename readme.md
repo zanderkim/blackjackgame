@@ -1,8 +1,6 @@
 GAME: Blackjack (aka 21)
 
-Blackjack is a popular card casino game - the most widely played casino banking game in the world. It uses decks of 52 cards and descends from a global family of casino banking games known as "twenty-one".
-
-Blackjack players do not compete against each other. The game is a comparing card game where each player competes against the dealer.
+Blackjack is a popular card casino game - the most widely played casino banking game in the world. It uses decks of 52 cards and descends from a global family of casino banking games known as "twenty-one". Players do not compete against each other. The game is a comparing card game where each player competes against the dealer.
 
 Fun fact: The first written mention of blackjack was in a collection of short stories by Miguel de Cervantes, the author of “Don Quixote," dating this game back to the late 16th/early 17th century.
 
@@ -12,10 +10,10 @@ Technologies Used: JavaScript, HTML/CSS, CSS Card Library
 
 Game instructions:
 	- User presses start to deal cards to CPU and User. 
-	- User "hits" or "stands." 
-		- When User "stands," cpu takes turn and prints result. 
-	- CPU never hits if hand value equals 17-21 inclusive.
-	- User presses "deal new hand" to play again.
+ 	- User "hits" or "stands." 
+  	- When User "stands," cpu takes turn and prints result. 
+   	- CPU never hits if hand value equals 17-21 inclusive.
+    	- User presses "deal new hand" to play again.
 
 Unique rules: 
 	- Ace is always valued at 11, never 1.
@@ -32,7 +30,6 @@ Next Steps: Planned future enhancements (icebox items).
 	- Change color of table (themes)
 	- Add capability of using multiple decks and keeping the same array throughout the hands.
 	- Add capability of running chip total.
-	- Sound/music effects on Blackjack.
-	- Visual effects on Blackjack.
+	- Sound/visual effects.
 	- Add multiple printed results, give the CPU personality.
 	- Add start/welcome landing page.
