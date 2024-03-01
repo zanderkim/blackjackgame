@@ -1,13 +1,14 @@
 GAME: Blackjack (aka 21)
 
-Blackjack (formerly black jack and vingt-un) is a casino game. It is the most widely played casino banking game in the world. It uses decks of 52 cards and descends from a global family of casino banking games known as "twenty-one". This family of card games also includes the European games vingt-et-un and pontoon, and the Russian game Ochko. 
+Blackjack is a popular card casino game - the most widely played casino banking game in the world. It uses decks of 52 cards and descends from a global family of casino banking games known as "twenty-one".
 
 Blackjack players do not compete against each other. The game is a comparing card game where each player competes against the dealer.
 
+Fun fact: 1. The first written mention of blackjack was in a collection of short stories by Miguel de Cervantes, the author of “Don Quixote," dating this game back to the late 16th/early 17th century.
+
 Game: https://zanderkim.github.io/blackjackgame/
 
-☐ Technologies Used: JavaScript, HTML/CSS, CSS Card Library
-
+Technologies Used: JavaScript, HTML/CSS, CSS Card Library
 
 Game instructions:
 	- User presses start to deal cards to CPU and User. 
