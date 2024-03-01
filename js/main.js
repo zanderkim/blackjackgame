@@ -6,7 +6,6 @@ const values = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 
 const originalDeck = buildOriginalDeck();
 
 /*-----state variables -----*/
-let shuffledDeck; //newDeck
 let cpuHand = [];
 let playerHand = [];
 let cpuTotal = 0;
@@ -39,14 +38,15 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     return deck;
   };
 
- // This function generates a random card, set in an array from one deck of cards (the same deck)
+  // randomCard generates a random card from a full 52-card deck array from one deck of cards. All hands use one deck and reset one deck every hand.
   function randomCard() {
     const randomIdx = Math.floor(Math.random() * originalDeck.length);
     const card = originalDeck[randomIdx];
     originalDeck.splice(randomIdx, 1)
     return card;
   };
- // addsImage of card from CSS card library 
+
+  // addsImage of card from CSS card library onto card div
   function addImage() {
     const playerContainer = document.querySelectorAll('.player-card-container > div');
     const cpuContainer = document.querySelectorAll('.cpu-card-container > div');
@@ -58,10 +58,9 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     console.log(playerContainer[0])
     for (let i=0; i < playerContainer.length; i++) {
     playerContainer[i].classList.add(playerHand[i].face);
-  }
-}; 
+  }}; 
 
-// This function begins the game when a player presses start, button text then changes to deal new hand.
+  // dealHands begins the game when a player presses start. potential: change dealHands to init
   function dealHands() { 
     document.getElementById('restart-button').style.visibility = 'visible';
     document.getElementById('start-button').style.visibility = 'hidden';
@@ -71,15 +70,13 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     addImage();
   };
 
+  // reDeal resets the game and plays a new hand, new full 52 card deck.
   function reDeal() {
     window.location.reload(true);
     dealHands();
-    // const deck = [];
-    // buildOriginalDeck();
-    // deck.classList.remove('face');
-    // dealHands();
   };
-// This function logs the player hit or stand, then moves to the CPU's turn
+
+  // This function logs the player clicking hit or stand. On stand, moves to cpuTurn.
   function hitPlayer() {
     const newCard = randomCard();
     playerHand.push(newCard);
@@ -96,11 +93,11 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
         playerTurn();
   }};
 
+  // playerTurn and cpuTurn are functions that hitPlayer and hitCpu are nested in, onto whoWins.
   function playerTurn(){};
   function cpuTurn(){};
-  
-     // flip card
-     
+
+  // hitCpu adds one card to dealer hand, repeats hit until dealer hits 17 or bust. Once dealer is content, move to function whoWins.
   function hitCpu() {
     const houseCard = randomCard();
     const cpuTotal = cardSum(cpuHand);
@@ -118,7 +115,7 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
       };  
   };
 
-// This function adds card values for user and CPU
+  // cardSum adds card values for one hand, outputs one value
   function cardSum(hand) {
     console.log(hand);
     let sum = 0;
@@ -128,7 +125,7 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     return sum;
   };
 
-// This function compares the total card value for user and CPU
+  // whoWins compares the total card value for user and CPU, prints result.
   function whoWins() {
     const playerContainer = document.querySelectorAll('.player-card-container > div');
     const cpuContainer = document.querySelectorAll('.cpu-card-container > div');
