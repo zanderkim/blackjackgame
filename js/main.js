@@ -15,9 +15,6 @@ let playerTotal = 0;
 /*----- cached elements  -----*/
 const cpuContainer = document.querySelectorAll('.cpu-card-container > div');
 const playerContainer = document.querySelectorAll('.player-card-container > div');
-// const playerContainerNodes = document.querySelectorAll('.player-card-container > div');
-// let playerContainer = Array.from(playerContainerNodes);
-console.log(playerContainer);
 const outerPlayerContainer = document.querySelector('.player-card-container');
 const outerCpuContainer = document.querySelector('.cpu-card-container');
 
@@ -41,7 +38,6 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     });
     return deck;
   };
-  // card.classList.remove -- remove and add class every time start is pressed
 
  // This function generates a random card, set in an array from one deck of cards (the same deck)
   function randomCard() {
@@ -49,7 +45,7 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     const card = originalDeck[randomIdx];
     originalDeck.splice(randomIdx, 1)
     return card;
-};
+  };
  // addsImage of card from CSS card library 
   function addImage() {
     const playerContainer = document.querySelectorAll('.player-card-container > div');
@@ -65,27 +61,19 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
   }
 }; 
 
-// <button id="restart-button" onClick=location.reload(true)></button>
-// html hidden button that appears after start. 
-// add event listener to new button -- location reload
-// restarbutton.style.visibility = hidden in VS, visible in JS
 // This function begins the game when a player presses start, button text then changes to deal new hand.
   function dealHands() { 
     document.getElementById('restart-button').style.visibility = 'visible';
     document.getElementById('start-button').style.visibility = 'hidden';
+   
     cpuHand = [randomCard(), randomCard()];
     playerHand = [randomCard(), randomCard()];
     addImage();
-    // playerTurn();
-    // cpuTurn();
-    // whoWins();
-    // if (cardSum(cpuHand) >= 17 && cardSum(cpuHand) <= 21) {
-    //   whoWins();
-    // };
   };
 
   function reDeal() {
     window.location.reload(true);
+    dealHands();
     // const deck = [];
     // buildOriginalDeck();
     // deck.classList.remove('face');
@@ -101,7 +89,6 @@ document.querySelector('#restart-button').addEventListener('click', reDeal);
     addImage(playerContainer);
 
     const playerTotal = cardSum(playerHand);
-    // const cpuTotal = cardSum(cpuHand);
       if (playerTotal > 21) {
         console.log("you're busted, buster.")
         document.getElementById("final-results").textContent = "uh oh! looks like you're over 21. try again, we believe in you.";

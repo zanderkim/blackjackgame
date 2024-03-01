@@ -4,14 +4,14 @@ Blackjack (formerly black jack and vingt-un) is a casino game. It is the most wi
 
 Blackjack players do not compete against each other. The game is a comparing card game where each player competes against the dealer.
 
-☐ Screenshots:
+☐ Screenshots: 
+<img src="/screenshot2.png>;
+<img src="/screenshot1.png>;
 
 ☐ Technologies Used: JavaScript, HTML/CSS, CSS Card Library
 
-☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
-Game:
+☐ Game instructions:
 
-Instructions:
 	- User presses start to deal cards to CPU and User. 
 	- User "hits" or "stands." 
 		- When User "stands," cpu takes turn and prints result. 
@@ -19,13 +19,13 @@ Instructions:
 	- User presses "deal new hand" to play again.
 
 
-Unique rules: 
+☐ Unique rules: 
 	- Ace is always valued at 11, never 1.
 	- Betting feature always returns double, no minimum or maximum bet.
 	- User can see both of dealer's cards.
 	- Only press start for the first hand, "deal new hand button" afterward.
  
-Next Steps: Planned future enhancements (icebox items).
+☐ Next Steps: Planned future enhancements (icebox items).
 
 	- Ace can be valued at 11 OR 1.
 	- The first CPU card is facedown, reveals when User "stands" and CPU begins turn.
@@ -36,3 +36,4 @@ Next Steps: Planned future enhancements (icebox items).
 	- Visual effects on Blackjack.
 	- Add multiple printed results, give the CPU personality.
 	- Add start/welcome landing page.
+	- Add split option for user hands.
