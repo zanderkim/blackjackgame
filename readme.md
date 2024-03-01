@@ -17,13 +17,14 @@ Game instructions:
 	- CPU never hits if hand value equals 17-21 inclusive.
 	- User presses "deal new hand" to play again.
 
-
 Unique rules: 
 	- Ace is always valued at 11, never 1.
 	- Betting feature always returns double, no minimum or maximum bet.
 	- User can see both of dealer's cards.
 	- Only press start for the first hand, "deal new hand button" afterward.
- 
+
+Screenshots: ![screenshot1](https://github.com/zanderkim/blackjackgame/assets/24398832/fe0a71e1-d07b-4ff1-9023-e636796f91f0)
+
 Next Steps: Planned future enhancements (icebox items).
 
 	- Ace can be valued at 11 OR 1.
